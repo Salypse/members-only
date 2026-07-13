@@ -8,6 +8,7 @@ const validateSignUp = [
     .withMessage("E-mail is required.")
     .isEmail()
     .withMessage("Please enter a valid email.")
+    .bail()
     .normalizeEmail()
     .custom(async (value) => {
       const user = await db.findUserByUsername(value);
@@ -32,6 +33,14 @@ const validateSignUp = [
     .withMessage("Password is required.")
     .isLength({ min: 8, max: 25 })
     .withMessage("Password must be between 8 and 25 characters."),
+  body("confirmPassword")
+    .notEmpty()
+    .withMessage("Confirm Password is required.")
+    .custom(async (value, { req }) => {
+      if (value !== req.body.password) {
+        throw new Error("Passwords do not match.");
+      }
+    }),
 ];
 
 module.exports = {

@@ -19,7 +19,6 @@ module.exports = {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-      console.log(errors);
       return res.status(400).render("sign-up", { errors: errors.array() });
     }
 
