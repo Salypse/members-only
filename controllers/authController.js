@@ -7,8 +7,14 @@ module.exports = {
     res.render("login");
   },
 
-  postLogin(req, res, next) {
-    res.redirect("/");
+  async validateLoginForm(req, res, next) {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.status(400).render("login", { errors: errors.array() });
+    }
+
+    next();
   },
 
   getSignUpPage(req, res, next) {

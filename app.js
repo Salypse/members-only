@@ -5,10 +5,12 @@ const path = require("node:path");
 const expressSession = require("express-session");
 const pgSession = require("connect-pg-simple")(expressSession);
 const app = express();
+const { Pool } = require("pg");
+const passport = require("./config/passport");
 
 const indexRouter = require("./routes/indexRouter");
 const loginRouter = require("./routes/loginRouter");
-const { Pool } = require("pg");
+const signUpRouter = require("./routes/signUpRouter");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -20,6 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 const pool = new Pool({
   connectionString: process.env.CONNECTION_STRING,
 });
+
 app.use(
   expressSession({
     store: new pgSession({
@@ -32,9 +35,18 @@ app.use(
     cookie: { maxAge: 14 * 24 * 60 * 60 * 1000 }, //Remove cookies after 2 weeks
   }),
 );
+app.use(passport.initialize());
+app.use(passport.session());
+
+//Allows user property in ejs files
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
 
 app.use("/", indexRouter);
 app.use("/login", loginRouter);
+app.use("/sign-up", signUpRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (error) => {
