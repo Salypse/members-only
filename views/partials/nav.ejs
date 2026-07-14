@@ -3,6 +3,9 @@
 
     <% if (locals.user) { %>
         <strong><%= user.full_name %></strong>
+        <form action="/login/log-out" method="POST">
+            <button type="submit">Log Out</button>
+        </form>
     <%} else { %>
         <a href="/login">Login</a>
     <% } %>

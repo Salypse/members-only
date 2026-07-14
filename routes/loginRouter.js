@@ -15,5 +15,6 @@ loginRouter.post(
     successRedirect: "/",
   }),
 );
+loginRouter.post("/log-out", authController.logOut);
 
 module.exports = loginRouter;

@@ -21,6 +21,15 @@ module.exports = {
     next();
   },
 
+  async logOut(req, res, next) {
+    req.logout((error) => {
+      if (error) {
+        return error;
+      }
+    });
+    res.redirect("/");
+  },
+
   getSignUpPage(req, res, next) {
     res.render("sign-up");
   },
