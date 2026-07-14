@@ -1,0 +1,9 @@
+<nav>
+    <a href="/">Message Board</a>
+
+    <% if (locals.user) { %>
+        <strong><%= user.full_name %></strong>
+    <%} else { %>
+        <a href="/login">Login</a>
+    <% } %>
+</nav>
