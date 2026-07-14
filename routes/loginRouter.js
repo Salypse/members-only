@@ -11,6 +11,7 @@ loginRouter.post(
   authController.validateLoginForm,
   passport.authenticate("local", {
     failureRedirect: "/login",
+    failureMessage: true,
     successRedirect: "/",
   }),
 );

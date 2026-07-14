@@ -4,7 +4,11 @@ const bcrypt = require("bcryptjs");
 
 module.exports = {
   getLoginPage(req, res, next) {
-    res.render("login");
+    const failureMessages = req.session.messages || [];
+    //Clear failure messages on each get request
+    req.session.messages = [];
+
+    res.render("login", { messages: failureMessages });
   },
 
   async validateLoginForm(req, res, next) {
