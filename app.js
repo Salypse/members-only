@@ -11,6 +11,7 @@ const passport = require("./config/passport");
 const indexRouter = require("./routes/indexRouter");
 const loginRouter = require("./routes/loginRouter");
 const signUpRouter = require("./routes/signUpRouter");
+const membershipRouter = require("./routes/membershipRouter");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -47,6 +48,7 @@ app.use((req, res, next) => {
 app.use("/", indexRouter);
 app.use("/login", loginRouter);
 app.use("/sign-up", signUpRouter);
+app.use("/membership", membershipRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (error) => {

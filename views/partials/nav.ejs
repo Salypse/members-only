@@ -6,6 +6,12 @@
         <form action="/login/log-out" method="POST">
             <button type="submit">Log Out</button>
         </form>
+
+        <%# If user is member hide the link to membership page%>
+        <% if (!user.member) { %>
+            <a href="/membership">Join The Club!</a>
+        <% } %>
+
     <%} else { %>
         <a href="/login">Login</a>
     <% } %>

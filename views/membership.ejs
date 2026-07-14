@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Membership</title>
+  </head>
+  <body>
+    <%- include("partials/nav") %>
+    
+    <main>
+        <h1>Become a Member</h1>
+        <small>Enter the Membership passcode to become a member!</small>
+
+        <% if (locals.error) { %>
+            <p><%= error %></p>
+        <% } %> 
+
+        <form action="/membership" method="POST">
+            <label for="membership-password">Password</label>
+            <input
+                type="password"
+                id="membership-password"
+                name="membershipPassword"
+            />
+
+            <button type="submit">Become a Member</button>
+        </form>
+    </main>
+  </body>
+</html>

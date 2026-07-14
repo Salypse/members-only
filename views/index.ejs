@@ -8,5 +8,10 @@
   </head>
   <body>
     <%- include("partials/nav") %>
+    <% if (locals.user) { %>
+      <% if (user.member) { %>
+        <p>Welcome, Club Member!</p>
+      <% } %>
+    <% } %>
   </body>
 </html>
