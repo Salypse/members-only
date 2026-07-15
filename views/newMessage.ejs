@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Message</title>
+  </head>
+  <body>
+    <%- include("partials/nav") %>
+
+    <main>
+      <h1>New Message</h1>
+
+      <% if (locals.errors) { %>
+        <div class="errors">
+          <% errors.forEach((error) => { %>
+            <p><%= error.msg %></p>
+          <% }) %>
+        </div>
+      <% } %>
+
+      <form action="/message" method="POST">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" />
+
+        <label for="message-text">Message</label>
+        <input type="text" id="message-text" name="messageText" />
+
+        <button type="submit">Create Message</button>
+      </form>
+    </main>
+  </body>
+</html>

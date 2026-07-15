@@ -3,6 +3,7 @@ require("dotenv").config();
 
 const SQL = `
     DROP TABLE IF EXISTS users;
+    DROP TABLE IF ExISTS messages;
     DROP TABLE IF EXISTS session;
 
     CREATE TABLE users (
@@ -12,6 +13,16 @@ const SQL = `
       password VARCHAR( 255 ) NOT NULL,
       member boolean DEFAULT false,
       admin boolean DEFAULT false
+    );
+
+    CREATE TABLE messages (
+      id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+      user_id INTEGER NOT NULL,
+      title VARCHAR ( 50 ) NOT NULL,
+      message VARCHAR( 255 ) NOT NULL,
+      timestamp text NOT NULL,
+
+      FOREIGN KEY (user_id) REFERENCES users(id)
     );
 
     CREATE TABLE "session" (
