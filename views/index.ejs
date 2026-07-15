@@ -24,7 +24,7 @@
               <div class="message-info">
 
                 <%# Show message info only to logged in users %>
-                <% if (locals.user) { %>
+                <% if (locals.user && user.member) { %>
                   <p>Sent By: <%= message.full_name %> </p>
                   <p>Posted: <%= message.timestamp %></p>
                 <% } else {%>
