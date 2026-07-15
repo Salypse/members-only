@@ -8,10 +8,38 @@
   </head>
   <body>
     <%- include("partials/nav") %>
-    <% if (locals.user) { %>
-      <% if (user.member) { %>
-        <p>Welcome, Club Member!</p>
+    <main>
+      <% if (locals.user) { %>
+        <a href="/message">Create a New Message!</a>
       <% } %>
-    <% } %>
+
+      <% if (locals.messages.length > 0) { %>
+        <section>
+          <h2>Messages</h2>
+
+          <% messages.forEach((message) => { %>
+            <article class="message">
+              <strong><%= message.title %></strong>
+              <p><%= message.message %></p>
+              <div class="message-info">
+
+                <%# Show message info only to logged in users %>
+                <% if (locals.user) { %>
+                  <p>Sent By: <%= message.full_name %> </p>
+                  <p>Posted: <%= message.timestamp %></p>
+                <% } else {%>
+                  <p>Sent By: Anonymous</p>
+                  <p>Posted: Unknown</p>
+                <% } %>
+
+              </div>
+            </article>
+          <% }) %>
+        </section>
+      <% } else { %>
+        <p>No messages have been posted.</p>
+      <% } %>
+    </main>
+
   </body>
 </html>

@@ -37,7 +37,10 @@ module.exports = {
   },
 
   async getMessages() {
-    const { rows } = await pool.query("SELECT * FROM messages");
+    const { rows } = await pool.query(
+      "SELECT * FROM messages INNER JOIN users ON messages.user_id = users.id",
+    );
+    console.log(rows);
     return rows;
   },
 };
