@@ -1,4 +1,5 @@
 const pool = require("./pool");
+const centralConversion = require("../public/utils/convertTime");
 
 module.exports = {
   async findUserByUsername(username) {
@@ -37,5 +38,16 @@ module.exports = {
       "INSERT INTO messages (user_id, title, message, timestamp) VALUES ($1, $2, $3, $4)",
       [userId, title, message, timestamp],
     );
+  },
+
+  async getMessages() {
+    const { rows } = await pool.query(
+      "SELECT messages.id as message_id, users.id as user_id, title, message, timestamp, full_name FROM messages JOIN users ON messages.user_id = users.id",
+    );
+    return rows;
+  },
+
+  async deleteMessage(id) {
+    await pool.query("DELETE FROM messages WHERE id = $1", [id]);
   },
 };

@@ -6,4 +6,6 @@ const validateMessage = require("../validators/messageValidator");
 messageRouter.get("/", messageController.getNewMessagePage);
 messageRouter.post("/", validateMessage, messageController.postNewMessage);
 
+messageRouter.post("/delete", messageController.deleteMessage);
+
 module.exports = messageRouter;

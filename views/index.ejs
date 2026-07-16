@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Message Board</title>
     <link rel="stylesheet" href="/styles/index.css" />
+
+    <script src="/utils/deleteConfirmationModal.js" defer></script>
   </head>
   <body>
     <%- include("partials/nav") %>
@@ -23,10 +25,16 @@
               <p><%= message.message %></p>
               <div class="message-info">
 
-                <%# Show message info only to logged in users %>
-                <% if (locals.user && user.member) { %>
+                <%# Show message info only to logged in users who are a member or admin %>
+                <% if (locals.user && (user.member || user.admin)) { %>
                   <p>Sent By: <%= message.full_name %> </p>
                   <p>Posted: <%= message.timestamp %></p>
+
+                  <%# If user is an admin show the delete message button %>
+                  <% if (user.admin) { %>
+                   <button class="modal-btn open-modal" id="open-modal-btn" data-message-id="<%= message.message_id %>">X</button>
+                  <% } %>
+
                 <% } else {%>
                   <p>Sent By: Anonymous</p>
                   <p>Posted: Unknown</p>
@@ -35,11 +43,23 @@
               </div>
             </article>
           <% }) %>
+
         </section>
       <% } else { %>
         <p>No messages have been posted.</p>
       <% } %>
     </main>
+    <%# Delete confirmation modal %>
+      <dialog id="delete-confirmation-modal">
+        <h2>Delete Message</h2>
+        <button class="modal-btn" id="close-delete-modal">X</button>
+
+        <small>Are you sure?</small>
+        <form action="/message/delete" method="POST">
+          <input type="hidden" id="message-id" name="messageId">
+          <button type="submit" id="delete-message-btn">Delete</button>
+        </form>
+      </dialog>
 
   </body>
 </html>

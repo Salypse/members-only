@@ -19,4 +19,11 @@ module.exports = {
     await db.createMessage(userId, title, messageText);
     res.redirect("/");
   },
+
+  async deleteMessage(req, res, next) {
+    const { messageId } = req.body;
+    await db.deleteMessage(messageId);
+
+    res.redirect("/");
+  },
 };
