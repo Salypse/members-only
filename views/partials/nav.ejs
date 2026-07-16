@@ -12,6 +12,10 @@
             <a href="/membership">Join The Club!</a>
         <% } %>
 
+        <% if (!user.admin) { %> 
+            <a href="/admin">Become an Admin!</a>
+        <% } %>
+
     <%} else { %>
         <a href="/login">Login</a>
     <% } %>

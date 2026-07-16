@@ -13,6 +13,7 @@ const loginRouter = require("./routes/loginRouter");
 const signUpRouter = require("./routes/signUpRouter");
 const membershipRouter = require("./routes/membershipRouter");
 const messageRouter = require("./routes/messageRouter");
+const adminRouter = require("./routes/adminRouter");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -51,6 +52,7 @@ app.use("/login", loginRouter);
 app.use("/sign-up", signUpRouter);
 app.use("/membership", membershipRouter);
 app.use("/message", messageRouter);
+app.use("/admin", adminRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (error) => {
