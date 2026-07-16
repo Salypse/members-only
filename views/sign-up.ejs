@@ -10,13 +10,7 @@
     <main>
       <h1>Sign Up</h1>
 
-      <% if (locals.errors) { %>
-        <div class="errors">
-          <% errors.forEach((error) => { %>
-            <p><%= error.msg %></p>
-          <% }) %>
-        </div>
-      <% } %>
+      <%- include("partials/errors") %>
 
       <form action="/sign-up" method="POST">
         <label for="email">Email</label>

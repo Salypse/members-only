@@ -11,13 +11,7 @@
     <main>
       <h1>New Message</h1>
 
-      <% if (locals.errors) { %>
-        <div class="errors">
-          <% errors.forEach((error) => { %>
-            <p><%= error.msg %></p>
-          <% }) %>
-        </div>
-      <% } %>
+      <%- include("partials/errors")
 
       <form action="/message" method="POST">
         <label for="title">Title</label>

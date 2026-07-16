@@ -13,15 +13,13 @@
       <small>Enter the Admin passcode to become an admin.</small>
     </main>
 
-    <% if (locals.error) { %>
-        <p><%= error %></p>
-    <% } %>
+    <%- include("partials/errors") %>
 
     <form action="/admin" method="POST">
-        <label for="admin-password">Password</label>
-        <input type="password" id="admin-password" name="adminPassword">
+      <label for="admin-password">Password</label>
+      <input type="password" id="admin-password" name="adminPassword" />
 
-        <button type="submit">Become an Admin</button>
+      <button type="submit">Become an Admin</button>
     </form>
   </body>
 </html>
