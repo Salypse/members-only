@@ -3,6 +3,7 @@ const loginRouter = express.Router();
 const authController = require("../controllers/authController");
 const passport = require("../config/passport");
 const validateLogin = require("../validators/loginValidator");
+const { isAuth } = require("../public/utils/authMiddleware");
 
 loginRouter.get("/", authController.getLoginPage);
 loginRouter.post(
@@ -15,6 +16,6 @@ loginRouter.post(
     successRedirect: "/",
   }),
 );
-loginRouter.post("/log-out", authController.logOut);
+loginRouter.post("/log-out", isAuth, authController.logOut);
 
 module.exports = loginRouter;

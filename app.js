@@ -54,6 +54,24 @@ app.use("/membership", membershipRouter);
 app.use("/message", messageRouter);
 app.use("/admin", adminRouter);
 
+//404 Not found error handler
+app.use((req, res, next) => {
+  res
+    .status(404)
+    .render("error", { message: "Page Not Found", statusCode: 404 });
+});
+
+app.use((err, req, res, next) => {
+  console.error(err);
+
+  res
+    .status(err.statusCode || 500)
+    .render("error", {
+      message: err.message || "Something went wrong",
+      statusCode: err.statusCode || 500,
+    });
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (error) => {
   if (error) {
