@@ -1,8 +1,9 @@
 const db = require("../db/queries");
 const { validationResult } = require("express-validator");
+const AppError = require("../public/errors/customErrors");
 
 module.exports = {
-  async getNewMessagePage(req, res, next) {
+  getNewMessagePage(req, res, next) {
     res.render("newMessage");
   },
 
@@ -13,17 +14,30 @@ module.exports = {
       return res.render("newMessage", { errors: errors.array() });
     }
 
-    const userId = req.user.id;
-    const { title, messageText } = req.body;
+    try {
+      const userId = req.user.id;
+      const { title, messageText } = req.body;
 
-    await db.createMessage(userId, title, messageText);
-    res.redirect("/");
+      await db.createMessage(userId, title, messageText);
+      res.redirect("/");
+    } catch (error) {
+      return next(error);
+    }
   },
 
   async deleteMessage(req, res, next) {
-    const { messageId } = req.body;
-    await db.deleteMessage(messageId);
+    try {
+      const { messageId } = req.body;
+      const deletedMessage = await db.deleteMessage(messageId);
 
-    res.redirect("/");
+      //Check that given id goes to a message and deletes it
+      if (!deletedMessage) {
+        throw new AppError("Message not found.", 404);
+      }
+
+      res.redirect("/");
+    } catch (error) {
+      return next(error);
+    }
   },
 };

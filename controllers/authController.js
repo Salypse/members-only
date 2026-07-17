@@ -24,7 +24,7 @@ module.exports = {
   async logOut(req, res, next) {
     req.logout((error) => {
       if (error) {
-        return error;
+        return next(error);
       }
     });
     res.redirect("/");
@@ -49,7 +49,7 @@ module.exports = {
       await db.createUser(email, fullName, hashedPassword);
       res.redirect("/login");
     } catch (error) {
-      next(error);
+      return next(error);
     }
   },
 };

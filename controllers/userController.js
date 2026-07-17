@@ -15,7 +15,7 @@ module.exports = {
     res.redirect("/");
   },
 
-  async getAdminPage(req, res, next) {
+  getAdminPage(req, res, next) {
     res.render("admin");
   },
 

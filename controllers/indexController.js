@@ -2,8 +2,12 @@ const db = require("../db/queries");
 
 module.exports = {
   async indexGet(req, res, next) {
-    const messages = await db.getMessages();
+    try {
+      const messages = await db.getMessages();
 
-    res.render("index", { messages: messages });
+      res.render("index", { messages: messages });
+    } catch (error) {
+      return next(error);
+    }
   },
 };
