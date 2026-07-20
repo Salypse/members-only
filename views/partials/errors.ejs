@@ -1,15 +1,17 @@
 <% if (locals.errors?.length || locals.messages?.length) { %>  
-    <ul>
-        <% if (locals.errors?.length) { %>
-            <% errors.forEach((error) => { %>
-                <li><%= error.msg %></li>
-            <% }) %>
-        <% } %>
+    <div id="errors">
+        <ul>
+            <% if (locals.errors?.length) { %>
+                <% errors.forEach((error) => { %>
+                    <li><img src="/images/error.svg"><%= error.msg %></li>
+                <% }) %>
+            <% } %>
 
-        <% if (locals.messages?.length) { %>
-            <% messages.forEach((message) => { %>
-                <li><%= message %></li>
-            <% }) %>
-        <% } %>
-    </ul>
+            <% if (locals.messages?.length) { %>
+                <% messages.forEach((message) => { %>
+                    <li><img src="/images/error.svg"><%= message %></li>
+                <% }) %>
+            <% } %>
+        </ul>
+    </div>
 <% } %>

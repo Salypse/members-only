@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Membership</title>
+    <link rel="stylesheet" href="/styles/root.css" />
   </head>
   <body>
     <%- include("partials/nav") %>
@@ -12,7 +13,7 @@
       <h1>Become a Member</h1>
       <small>Enter the Membership passcode to become a member!</small>
 
-      <%- include("partials/errors")>
+      <%- include("partials/errors") %>
 
       <form action="/membership" method="POST">
         <label for="membership-password">Password</label>

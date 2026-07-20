@@ -9,7 +9,9 @@ module.exports = {
     const { membershipPassword } = req.body;
 
     if (membershipPassword !== process.env.MEMBERSHIP_PASSWORD) {
-      return res.render("membership", { errors: "Incorrect Passcode." });
+      return res.render("membership", {
+        errors: [{ msg: "Incorrect Passcode." }],
+      });
     }
     await db.updateMembership(req.user.id);
     res.redirect("/");
@@ -23,7 +25,7 @@ module.exports = {
     const { adminPassword } = req.body;
 
     if (adminPassword !== process.env.ADMIN_PASSWORD) {
-      return res.render("admin", { errors: "Incorrect Passcode." });
+      return res.render("admin", { errors: [{ msg: "Incorrect Passcode." }] });
     }
 
     await db.updateAdmin(req.user.id);

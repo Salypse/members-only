@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Become an Admin</title>
+    <link rel="stylesheet" href="/styles/root.css" />
   </head>
   <body>
     <%- include("partials/nav") %>
@@ -11,15 +12,15 @@
     <main>
       <h1>Become an Admin</h1>
       <small>Enter the Admin passcode to become an admin.</small>
+
+      <%- include("partials/errors") %>
+
+      <form action="/admin" method="POST">
+        <label for="admin-password">Password</label>
+        <input type="password" id="admin-password" name="adminPassword" />
+
+        <button type="submit">Become an Admin</button>
+      </form>
     </main>
-
-    <%- include("partials/errors") %>
-
-    <form action="/admin" method="POST">
-      <label for="admin-password">Password</label>
-      <input type="password" id="admin-password" name="adminPassword" />
-
-      <button type="submit">Become an Admin</button>
-    </form>
   </body>
 </html>
