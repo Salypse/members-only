@@ -48,10 +48,10 @@ module.exports = {
   },
 
   async deleteMessage(id) {
-    const { rows } = await pool.query("DELETE FROM messages WHERE id = $1", [
-      id,
-    ]);
-
+    const { rows } = await pool.query(
+      "DELETE FROM messages WHERE id = $1 RETURNING *",
+      [id],
+    );
     return rows[0];
   },
 };
