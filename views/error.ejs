@@ -6,14 +6,17 @@
     <title>Error: <%= statusCode %></title>
     <link rel="stylesheet" href="/styles/root.css" />
     <link rel="stylesheet" href="/styles/nav.css" />
+    <link rel="stylesheet" href="/styles/errorPage.css" />
   </head>
   <body>
     <%- include("partials/nav") %>
 
     <main>
-      <h1>Error <%= statusCode %></h1>
-      <p><%= message %></p>
-      <a href="/">Return to Message Board</a>
+      <div id="error-status">
+        <strong id="error-code"><%= statusCode %></strong>
+        <p id="error-message"><%= message %></p>
+        <a href="/" id="home-btn">Return to Message Board</a>
+      </div>
     </main>
   </body>
 </html>
