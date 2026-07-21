@@ -1,6 +1,7 @@
 :root {
   --white: #ffffff;
   --black: #000000;
+  --dark-gray: #323030;
 
   --background-color: #ebe8e8;
 
@@ -27,14 +28,20 @@ body {
   min-height: 100vh;
 }
 
-nav {
-  height: var(--nav-height);
-}
-
 main {
   min-height: calc(100vh - var(--nav-height));
 
   background-color: var(--background-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  outline: none;
+  border: none;
+  background-color: transparent;
 }
 
 #errors {

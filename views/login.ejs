@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <link rel="stylesheet" href="/styles/root.css" />
+    <link rel="stylesheet" href="/styles/nav.css" />
   </head>
   <body>
     <%- include("partials/nav") %>
 
     <main>
+      <h1>Login</h1>
+
       <%- include("partials/errors") %>
 
       <form action="/login" method="POST">

@@ -1,22 +1,35 @@
 <nav>
-    <a href="/">Message Board</a>
+    <div id="site-title">
+        <a href="/">Message Board</a>
+    </div>
 
     <% if (locals.user) { %>
-        <strong><%= user.full_name %></strong>
-        <form action="/login/log-out" method="POST">
-            <button type="submit">Log Out</button>
-        </form>
+        <div id="nav-options">
+            <strong id="nav-username"><%= user.full_name %></strong>
+            <button id="menu-on-btn">><img src="/images/menu.svg"></button>
 
-        <%# If user is member hide the link to membership page%>
-        <% if (!user.member) { %>
-            <a href="/membership">Join The Club!</a>
-        <% } %>
+            <div id="nav-links">
+                <a  href="/" class="nav-link">Home</a>
 
-        <% if (!user.admin) { %> 
-            <a href="/admin">Become an Admin!</a>
-        <% } %>
+                <%# If user is member hide the link to membership and admin pages%>
+                <% if (!user.member) { %>
+                    <a href="/membership" class="nav-link">Join The Club!</a>
+                <% } %>
+
+                <% if (!user.admin) { %> 
+                    <a href="/admin" class="nav-link">Become an Admin!</a>
+                <% } %>
+
+                 <form action="/login/log-out" method="POST">
+                    <button type="submit" class="nav-link">Log Out</button>
+                </form>
+            </div>
+        </div>
+
+    <%# Handles menu behaviour on different devices %>
+    <script src="/utils/nav.js" defer></script>
 
     <%} else { %>
-        <a href="/login">Login</a>
+        <a href="/login" id="login">Login</a>
     <% } %>
 </nav>
