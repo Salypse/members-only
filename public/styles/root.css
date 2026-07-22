@@ -5,11 +5,15 @@
 
   --background-color: #ebe8e8;
 
-  --link-color: #0066cc;
-  --helper-color: #6b7280;
+  --helper-color: #585e6a;
+
+  --helper-header: #373b42;
+  --message-text: #424242;
 
   --error-background: #f4cdcd;
   --error-text: #442e2e;
+
+  --text-red: #f63030;
 
   --primary-green: #65d795;
   --secondary-green: #1b4332;
@@ -30,8 +34,12 @@ body {
 
 main {
   min-height: calc(100vh - var(--nav-height));
-
   background-color: var(--background-color);
+}
+
+main section {
+  width: 95vw;
+  margin: 0 auto;
 }
 
 a {
@@ -42,6 +50,7 @@ button {
   outline: none;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 
 #errors {

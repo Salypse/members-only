@@ -6,30 +6,35 @@
     <title>Message Board</title>
     <link rel="stylesheet" href="/styles/root.css" />
     <link rel="stylesheet" href="/styles/nav.css" />
+    <link rel="stylesheet" href="/styles/messages.css" />
 
     <script src="/utils/deleteConfirmationModal.js" defer></script>
   </head>
   <body>
     <%- include("partials/nav") %>
     <main>
-      <% if (locals.user) { %>
-        <a href="/message">Create a New Message!</a>
-      <% } %>
-
+      
       <% if (locals.messages.length > 0) { %>
-        <section>
-          <h2>Messages</h2>
+        <section id="messages-section">
+          <div id="messages-header">
+            <h2>Messages</h2>
+            
+            <% if (locals.user) { %>
+              <a href="/message" class="new-message"> + New Message</a>
+            <% } %>
+          </div>
 
-          <% messages.forEach((message) => { %>
+          <div id="messages">
+            <% messages.forEach((message) => { %>
             <article class="message">
               <strong><%= message.title %></strong>
-              <p><%= message.message %></p>
+              <p class="message-text"><%= message.message %></p>
               <div class="message-info">
 
                 <%# Show message info only to logged in users who are a member or admin %>
                 <% if (locals.user && (user.member || user.admin)) { %>
-                  <p>Sent By: <%= message.full_name %> </p>
-                  <p>Posted: <%= message.timestamp %></p>
+                  <p><span class="info-header">User: </span><%= message.full_name %> </p>
+                  <p><span class="info-header">Posted: </span><%= message.timestamp %></p>
 
                   <%# If user is an admin show the delete message button %>
                   <% if (user.admin) { %>
@@ -40,26 +45,33 @@
                   <p>Sent By: Anonymous</p>
                   <p>Posted: Unknown</p>
                 <% } %>
-
               </div>
+
             </article>
           <% }) %>
-
+          </div>
         </section>
       <% } else { %>
-        <p>No messages have been posted.</p>
+        <section id="no-messages">
+          <p>No messages have been posted.</p>
+          <% if (locals.user) { %>
+              <a href="/message" class="new-message"> + New Message</a>
+          <% } %>
+        </section>
       <% } %>
     </main>
     <%# Delete confirmation modal %>
-      <dialog id="delete-confirmation-modal">
+      <dialog id="delete-modal">
         <h2>Delete Message</h2>
         <button class="modal-btn" id="close-delete-modal">X</button>
 
-        <small>Are you sure?</small>
+        <small id="confirm-text">Are you sure?</small>
+
         <form action="/message/delete" method="POST">
           <input type="hidden" id="message-id" name="messageId">
           <button type="submit" id="delete-message-btn">Delete</button>
         </form>
+
       </dialog>
 
   </body>
