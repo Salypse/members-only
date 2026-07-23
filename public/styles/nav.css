@@ -59,6 +59,7 @@ nav a {
 }
 
 #nav-links {
+  z-index: 1000;
   position: absolute;
   top: var(--nav-height);
   left: 0;
