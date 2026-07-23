@@ -18,14 +18,15 @@
         <h1>New Message</h1>
 
         <form action="/message" method="POST">
-          <input type="text" id="title" name="title" placeholder="Title" />
+          <div class="form-field">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" />
+          </div>
 
-          <input
-            type="text"
-            id="message-text"
-            name="messageText"
-            placeholder="Message"
-          />
+          <div class="form-field">
+            <label for="message-text">Message</label>
+            <input type="text" id="message-text" name="messageText" />
+          </div>
 
           <button type="submit" class="form-button">Create Message</button>
         </form>

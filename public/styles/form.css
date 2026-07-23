@@ -25,7 +25,26 @@
   gap: 1rem;
 }
 
-#user-form form input {
+.form-field a {
+  color: var(--link-color);
+  font-size: clamp(1.1rem, 3vw, 1.2rem);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  gap: 0.3rem;
+}
+
+.form-field label {
+  font-size: clamp(1.2rem, 4vw, 1.3rem);
+  font-weight: bold;
+  color: var(--dark-gray);
+}
+
+.form-field input {
   width: 100%;
   padding: 0.25rem 0.5rem;
 
@@ -34,7 +53,7 @@
   border: 0.15rem solid var(--light-gray);
 }
 
-#user-form form input:focus-visible {
+.form-field input:focus-visible {
   outline: none;
   border-color: var(--primary-green);
   box-shadow: 0 0 5px 3px var(--primary-green);
@@ -68,10 +87,5 @@
   flex-direction: column;
   align-items: center;
 
-  font-size: clamp(1.1rem, 3vw, 1.2rem);
-}
-
-#user-form form a {
-  color: var(--link-color);
   font-size: clamp(1.1rem, 3vw, 1.2rem);
 }

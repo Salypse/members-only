@@ -16,15 +16,13 @@
         <%- include("partials/errors") %>
 
         <h1>Become an Admin</h1>
-        <small>Enter the Admin passcode to become an admin.</small>
+        <small>Enter the Admin password to become an admin.</small>
 
         <form action="/admin" method="POST">
-          <input
-            type="password"
-            id="admin-password"
-            name="adminPassword"
-            placeholder="Admin Password"
-          />
+          <div class="form-field">
+            <label for="admin-password">Admin Password</label>
+            <input type="password" id="admin-password" name="adminPassword" />
+          </div>
 
           <button type="submit" class="form-button">Become an Admin</button>
         </form>

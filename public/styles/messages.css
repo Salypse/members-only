@@ -46,9 +46,12 @@
   gap: 1rem;
   justify-self: center;
   justify-content: center;
+
+  list-style-type: none;
 }
 
 .message {
+  height: 100%;
   background-color: var(--white);
   padding: 0.8rem;
 

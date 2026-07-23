@@ -1,15 +1,15 @@
 <% if (locals.errors?.length || locals.messages?.length) { %>  
-    <div id="errors">
+    <div id="errors" role="alert">
         <ul>
             <% if (locals.errors?.length) { %>
                 <% errors.forEach((error) => { %>
-                    <li><img src="/images/error.svg"><%= error.msg %></li>
+                    <li><img src="/images/error.svg" alt=""><%= error.msg %></li>
                 <% }) %>
             <% } %>
 
             <% if (locals.messages?.length) { %>
                 <% messages.forEach((message) => { %>
-                    <li><img src="/images/error.svg"><%= message %></li>
+                    <li><img src="/images/error.svg" alt=""><%= message %></li>
                 <% }) %>
             <% } %>
         </ul>

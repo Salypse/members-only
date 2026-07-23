@@ -15,40 +15,34 @@
       <section id="user-form">
         <h1>Sign Up</h1>
         <form action="/sign-up" method="POST">
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email Address"
-          />
+          <div class="form-field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" />
+          </div>
 
-          <input
-            type="text"
-            id="first-name"
-            name="firstName"
-            placeholder="First Name"
-          />
+          <div class="form-field">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="firstName" />
+          </div>
 
-          <input
-            type="text"
-            id="last-name"
-            name="lastName"
-            placeholder="Last Name"
-          />
+          <div class="form-field">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="lastName" />
+          </div>
 
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Password"
-          />
+          <div class="form-field">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" />
+          </div>
 
-          <input
-            type="password"
-            id="confirm-password"
-            name="confirmPassword"
-            placeholder="Confirm Password"
-          />
+          <div class="form-field">
+            <label for="confirm-password">Confirm Password</label>
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirmPassword"
+            />
+          </div>
 
           <button type="submit" class="form-button">Create User</button>
 

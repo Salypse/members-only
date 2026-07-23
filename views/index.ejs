@@ -24,32 +24,34 @@
             <% } %>
           </div>
 
-          <div id="messages">
+          <ul id="messages">
             <% messages.forEach((message) => { %>
-            <article class="message">
-              <strong><%= message.title %></strong>
-              <p class="message-text"><%= message.message %></p>
-              <div class="message-info">
+              <li>
+                <article class="message">
+                  <h3><%= message.title %></h3>
+                  <p class="message-text"><%= message.message %></p>
 
-                <%# Show message info only to logged in users who are a member or admin %>
-                <% if (locals.user && (user.member || user.admin)) { %>
-                  <p><span class="info-header">User: </span><%= message.full_name %> </p>
-                  <p><span class="info-header">Posted: </span><%= message.timestamp %></p>
+                  <div class="message-info">
 
-                  <%# If user is an admin show the delete message button %>
-                  <% if (user.admin) { %>
-                   <button class="modal-btn open-modal" id="open-modal-btn" data-message-id="<%= message.message_id %>">X</button>
-                  <% } %>
+                    <%# Show message info only to logged in users who are a member or admin %>
+                    <% if (locals.user && (user.member || user.admin)) { %>
+                      <p><span class="info-header">User: </span><%= message.full_name %> </p>
+                      <p><span class="info-header">Posted: </span><%= message.timestamp %></p>
 
-                <% } else {%>
-                  <p>Sent By: Anonymous</p>
-                  <p>Posted: Unknown</p>
-                <% } %>
-              </div>
+                      <%# If user is an admin show the delete message button %>
+                      <% if (user.admin) { %>
+                      <button class="modal-btn open-modal" data-message-id="<%= message.message_id %>" aria-label="Delete message: <%= message.title %>">X</button>
+                    <% } %>
 
-            </article>
+                    <% } else {%>
+                      <p>Sent By: Anonymous</p>
+                      <p>Posted: Unknown</p>
+                    <% } %>
+                  </div>
+                </article>
+              </li>
           <% }) %>
-          </div>
+          </ul>
         </section>
       <% } else { %>
         <section id="no-messages">
@@ -63,7 +65,7 @@
     <%# Delete confirmation modal %>
       <dialog id="delete-modal">
         <h2>Delete Message</h2>
-        <button class="modal-btn" id="close-delete-modal">X</button>
+        <button class="modal-btn" id="close-delete-modal" aria-label="Close delete confirmation">X</button>
 
         <small id="confirm-text">Are you sure?</small>
 

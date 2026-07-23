@@ -6,7 +6,13 @@
     <% if (locals.user) { %>
         <div id="nav-options">
             <strong id="nav-username"><%= user.full_name %></strong>
-            <button id="menu-on-btn">><img src="/images/menu.svg"></button>
+            <button 
+                id="menu-on-btn" 
+                aria-label="Toggle navigation menu" 
+                aria-expanded="false"
+                aria-controls="nav-links">
+                <img src="/images/menu.svg" alt="">
+            </button>
 
             <div id="nav-links">
                 <a  href="/" class="nav-link">Home</a>

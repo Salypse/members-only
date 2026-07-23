@@ -16,15 +16,17 @@
 
       <section id="user-form">
         <h1>Become a Member</h1>
-        <small>Enter the Membership passcode to become a member!</small>
+        <small>Enter the Membership password to become a member!</small>
 
         <form action="/membership" method="POST">
-          <input
-            type="password"
-            id="membership-password"
-            name="membershipPassword"
-            placeholder="Membership Password"
-          />
+          <div class="form-field">
+            <label for="membership-password">Membership Password</label>
+            <input
+              type="password"
+              id="membership-password"
+              name="membershipPassword"
+            />
+          </div>
 
           <button type="submit" class="form-button">Become a Member</button>
         </form>
