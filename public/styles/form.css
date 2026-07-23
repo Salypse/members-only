@@ -1,0 +1,77 @@
+#user-form {
+  width: 80%;
+  max-width: 500px;
+
+  padding: 1rem 0 2rem 0;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 0.5rem;
+  background-color: var(--white);
+  box-shadow: 0 5px 10px -6px var(--dark-gray);
+}
+
+#user-form form {
+  width: 85%;
+  margin-top: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#user-form form input {
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+
+  font-size: clamp(1.2rem, 4vw, 1.3rem);
+  border-radius: 0.5rem;
+  border: 0.15rem solid var(--light-gray);
+}
+
+#user-form form input:focus-visible {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 5px 3px var(--primary-green);
+}
+
+.form-button {
+  width: 100%;
+  padding: 0.4rem 0;
+
+  color: var(--white);
+  font-weight: bold;
+  font-size: clamp(1.3rem, 4vw, 1.4rem);
+
+  border-radius: 0.5rem;
+  background-color: var(--secondary-green);
+
+  transition: transform 0.3s ease;
+}
+
+.form-button:hover,
+.form-button:focus-visible {
+  transform: scale(1.05);
+}
+
+.form-button:active {
+  transform: scale(0.9);
+}
+
+#sign-up-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-size: clamp(1.1rem, 3vw, 1.2rem);
+}
+
+#user-form form a {
+  color: var(--link-color);
+  font-size: clamp(1.1rem, 3vw, 1.2rem);
+}

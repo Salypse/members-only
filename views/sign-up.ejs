@@ -6,32 +6,55 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="/styles/root.css" />
     <link rel="stylesheet" href="/styles/nav.css" />
+    <link rel="stylesheet" href="/styles/form.css" />
   </head>
   <body>
     <%- include("partials/nav") %>
     <main>
-      <h1>Sign Up</h1>
-
       <%- include("partials/errors") %>
+      <section id="user-form">
+        <h1>Sign Up</h1>
+        <form action="/sign-up" method="POST">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email Address"
+          />
 
-      <form action="/sign-up" method="POST">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" />
+          <input
+            type="text"
+            id="first-name"
+            name="firstName"
+            placeholder="First Name"
+          />
 
-        <label for="first-name">First Name</label>
-        <input type="text" id="first-name" name="firstName" />
+          <input
+            type="text"
+            id="last-name"
+            name="lastName"
+            placeholder="Last Name"
+          />
 
-        <label for="last-name">Last Name</label>
-        <input type="text" id="last-name" name="lastName" />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+          />
 
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" />
+          <input
+            type="password"
+            id="confirm-password"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+          />
 
-        <label for="confirm-password">Confirm Password</label>
-        <input type="password" id="confirm-password" name="confirmPassword" />
+          <button type="submit" class="form-button">Create User</button>
 
-        <button type="submit">Create User</button>
-      </form>
+          <a href="/login">Return to Login</a>
+        </form>
+      </section>
     </main>
   </body>
 </html>

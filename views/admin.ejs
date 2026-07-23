@@ -6,22 +6,29 @@
     <title>Become an Admin</title>
     <link rel="stylesheet" href="/styles/root.css" />
     <link rel="stylesheet" href="/styles/nav.css" />
+    <link rel="stylesheet" href="/styles/form.css" />
   </head>
   <body>
     <%- include("partials/nav") %>
 
     <main>
-      <h1>Become an Admin</h1>
-      <small>Enter the Admin passcode to become an admin.</small>
+      <section id="user-form">
+        <%- include("partials/errors") %>
 
-      <%- include("partials/errors") %>
+        <h1>Become an Admin</h1>
+        <small>Enter the Admin passcode to become an admin.</small>
 
-      <form action="/admin" method="POST">
-        <label for="admin-password">Password</label>
-        <input type="password" id="admin-password" name="adminPassword" />
+        <form action="/admin" method="POST">
+          <input
+            type="password"
+            id="admin-password"
+            name="adminPassword"
+            placeholder="Admin Password"
+          />
 
-        <button type="submit">Become an Admin</button>
-      </form>
+          <button type="submit" class="form-button">Become an Admin</button>
+        </form>
+      </section>
     </main>
   </body>
 </html>

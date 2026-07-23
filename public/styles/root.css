@@ -1,11 +1,14 @@
 :root {
   --white: #ffffff;
   --black: #000000;
+
   --dark-gray: #323030;
+  --light-gray: #c2bebe;
 
   --background-color: #ebe8e8;
 
   --helper-color: #585e6a;
+  --link-color: #1866cb;
 
   --helper-header: #373b42;
   --message-text: #424242;
@@ -35,6 +38,7 @@ body {
 main {
   min-height: calc(100vh - var(--nav-height));
   background-color: var(--background-color);
+  padding: 1rem;
 }
 
 main section {

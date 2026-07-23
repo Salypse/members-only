@@ -6,26 +6,29 @@
     <title>Membership</title>
     <link rel="stylesheet" href="/styles/root.css" />
     <link rel="stylesheet" href="/styles/nav.css" />
+    <link rel="stylesheet" href="/styles/form.css" />
   </head>
   <body>
     <%- include("partials/nav") %>
 
     <main>
-      <h1>Become a Member</h1>
-      <small>Enter the Membership passcode to become a member!</small>
-
       <%- include("partials/errors") %>
 
-      <form action="/membership" method="POST">
-        <label for="membership-password">Password</label>
-        <input
-          type="password"
-          id="membership-password"
-          name="membershipPassword"
-        />
+      <section id="user-form">
+        <h1>Become a Member</h1>
+        <small>Enter the Membership passcode to become a member!</small>
 
-        <button type="submit">Become a Member</button>
-      </form>
+        <form action="/membership" method="POST">
+          <input
+            type="password"
+            id="membership-password"
+            name="membershipPassword"
+            placeholder="Membership Password"
+          />
+
+          <button type="submit" class="form-button">Become a Member</button>
+        </form>
+      </section>
     </main>
   </body>
 </html>

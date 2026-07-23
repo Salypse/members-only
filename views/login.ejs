@@ -6,26 +6,40 @@
     <title>Login</title>
     <link rel="stylesheet" href="/styles/root.css" />
     <link rel="stylesheet" href="/styles/nav.css" />
+    <link rel="stylesheet" href="/styles/form.css" />
   </head>
   <body>
     <%- include("partials/nav") %>
 
     <main>
-      <h1>Login</h1>
-
       <%- include("partials/errors") %>
 
-      <form action="/login" method="POST">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" />
+      <section id="user-form">
+        <h1>Login</h1>
 
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" />
+        <form action="/login" method="POST">
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Email address"
+          />
 
-        <button type="submit">Login</button>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+          />
 
-        <a href="/sign-up">Sign Up!</a>
-      </form>
+          <button type="submit" class="form-button">Login</button>
+
+          <div id="sign-up-info">
+            <p>Dont have an account?</p>
+            <a href="/sign-up">Sign Up Now!</a>
+          </div>
+        </form>
+      </section>
     </main>
   </body>
 </html>
