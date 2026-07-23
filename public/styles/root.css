@@ -94,3 +94,39 @@ button {
 
   max-width: 50px;
 }
+
+/* Import fonts and assign them to elements */
+
+@font-face {
+  font-family: "Archivo Narrow";
+  src: url("../fonts/Archivo_Narrow/ArchivoNarrow-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Bitter";
+  src: url("../fonts/Bitter/Bitter-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("../fonts/Outfit/Outfit-Regular.ttf");
+}
+
+h2,
+strong,
+button,
+input {
+  font-family: "Outfit";
+}
+
+a,
+p,
+li,
+h1 {
+  font-family: "Bitter";
+}
+
+span,
+small {
+  font-family: "Archivo Narrow";
+}

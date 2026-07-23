@@ -38,7 +38,7 @@ nav a {
 }
 
 #site-title a {
-  font-size: clamp(1.5rem, 5vw, 1.9rem);
+  font-size: clamp(1.5rem, 5vw, 1.75rem);
   color: var(--black);
 }
 
@@ -99,8 +99,6 @@ nav a {
 .nav-link {
   color: var(--white);
   font-size: clamp(1.1rem, 3vw, 1.3rem);
-
-  font-family: Courier;
 
   border: 0.2rem solid transparent;
   border-radius: 1rem;
