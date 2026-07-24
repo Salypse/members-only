@@ -95,6 +95,12 @@ button {
   max-width: 50px;
 }
 
+.helper-text {
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+  color: var(--dark-gray);
+  text-align: center;
+}
+
 /* Import fonts and assign them to elements */
 
 @font-face {

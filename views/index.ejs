@@ -24,6 +24,12 @@
             <% } %>
           </div>
 
+          <% if (locals.user && !user.member && !user.admin) { %>
+            <p class="helper-text">Only members or admins can view message author and timestamp.</p>
+         <% } %>
+          
+        
+
           <ul id="messages">
             <% messages.forEach((message) => { %>
               <li>
