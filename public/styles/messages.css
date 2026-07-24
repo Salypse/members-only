@@ -1,5 +1,6 @@
 #messages-section {
   padding-top: 1rem;
+  width: 100%;
 }
 
 #messages-header {
@@ -11,6 +12,7 @@
 
   border-bottom: 0.2rem solid var(--helper-color);
   font-weight: bold;
+  width: 100%;
 }
 
 .new-message {

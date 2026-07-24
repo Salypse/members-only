@@ -43,7 +43,9 @@ main {
 
 main section {
   width: 95vw;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 a {
