@@ -2,8 +2,8 @@ const { Client } = require("pg");
 require("dotenv").config();
 
 const SQL = `
-    DROP TABLE IF EXISTS users;
     DROP TABLE IF ExISTS messages;
+    DROP TABLE IF EXISTS users;
     DROP TABLE IF EXISTS session;
 
     CREATE TABLE users (
